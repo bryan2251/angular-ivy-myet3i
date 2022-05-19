@@ -5,7 +5,7 @@ import { AboutComponent } from '../about/about.component';
 import { ContactComponent } from '../contact/contact.component';
 import { HomeComponent } from '../home/home.component';
 import { SkillComponent } from '../skill/skill.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +16,7 @@ import { SkillComponent } from '../skill/skill.component';
       { path: 'skill', component: SkillComponent },
       { path: '**', redirectTo: 'home' },
     ]),
+    FormsModule,
   ],
   declarations: [
     AboutComponent,

@@ -1,29 +1,50 @@
-<div>
-  <h1>Ferretería UCB</h1>
-  <table border="1">
-    <tr>
-      <td>Código</td>
-      <td>Descripción</td>
-      <td>Precio</td>
-      <td>Borrar</td>
-      <td>Seleccionar</td>
-    </tr>
-    <tr *ngFor="let art of articulos">
-      <td>{{ art.codigo }}</td>
-      <td>{{ art.descripcion }}</td>
-      <td>{{ art.precio }}</td>
-      <td><button (click)="borrar(art)">Borrar?</button></td>
-      <td><button (click)="seleccionar(art)">Seleccionar</button></td>
-    </tr>
-  </table>
-  <ng-template #sinarticulos><p>No hay articulos.</p></ng-template>
-  <div>
-    <p>Código:<input type="number" [(ngModel)]="art.codigo" /></p>
-    <p>Descripción:<input type="text" [(ngModel)]="art.descripcion" /></p>
-    <p>Precio:<input type="number" [(ngModel)]="art.precio" /></p>
-    <p>
-      <button (click)="agregar()">Agregar</button>
-      <button (click)="modificar()">Modificar</button>
-    </p>
+<h1>Formulario Empleado</h1>
+<div class="frames">
+  <div class="frame"></div>
+  <div class="frame">
+    <label for="nombre">Nombre:</label> <br />
+    <input type="text" id="nombre" placeholder="Ingrese su nombre" />
+    <br />
+    <label for="ci">CI:</label> <br />
+    <input type="text" id="ci" placeholder="Ingrese su CI" />
+    <br />
+    <label for="datos.id">ID:</label> <br />
+    <input type="text" [(ngModel)]="datos.id" placeholder="Ingrese su ID" />
+    <br />
+    <label for="id2"> Ingrese su ID:</label><br />
+    <input type="text" [(ngModel)]="empleado.id" /><br />
+  </div>
+</div>
+<div class="form" *ngIf="empleado.id != ''">
+  <div *ngIf="empleado.id === datos.id">
+    <div>
+      <h1>Ferretería UCB</h1>
+      <table border="1" *ngIf="hayRegistros(); else sinarticulos">
+        <tr>
+          <td>Código</td>
+          <td>Descripción</td>
+          <td>Precio</td>
+          <td>Borrar</td>
+          <td>Seleccionar</td>
+        </tr>
+        <tr *ngFor="let art of articulos">
+          <td>{{ art.codigo }}</td>
+          <td>{{ art.descripcion }}</td>
+          <td>{{ art.precio }}</td>
+          <td><button (click)="borrar(art)">Borrar?</button></td>
+          <td><button (click)="seleccionar(art)">Seleccionar</button></td>
+        </tr>
+      </table>
+      <ng-template #sinarticulos><p>No hay articulos.</p></ng-template>
+      <div>
+        <p>Código:<input type="number" [(ngModel)]="art.codigo" /></p>
+        <p>Descripción:<input type="text" [(ngModel)]="art.descripcion" /></p>
+        <p>Precio:<input type="number" [(ngModel)]="art.precio" /></p>
+        <p>
+          <button (click)="agregar()">Agregar</button>
+          <button (click)="modificar()">Modificar</button>
+        </p>
+      </div>
+    </div>
   </div>
 </div>

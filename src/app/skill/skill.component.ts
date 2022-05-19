@@ -1,12 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-skill',
   templateUrl: './skill.component.html',
   styleUrls: ['./skill.component.css'],
 })
-export class SkillComponent implements OnInit {
-  constructor() {}
+export class SkillComponent {
+  empleado = {
+    id: '',
+    departamento: '',
+    turno: '',
+    horario: '',
+  };
+  datos = {
+    id: '',
+  };
   art = {
     codigo: null,
     descripcion: null,
@@ -14,16 +22,17 @@ export class SkillComponent implements OnInit {
   };
 
   articulos = [
-    { codigo: 1, descripcion: 'pernos', precio: 1.5 },
+    { codigo: 1, descripcion: 'Chocolate Crocante', precio: 1.5 },
     { codigo: 2, descripcion: 'cable', precio: 15.5 },
     { codigo: 3, descripcion: 'martillos', precio: 102.3 },
     { codigo: 4, descripcion: 'tuberías', precio: 70 },
     { codigo: 5, descripcion: 'pintura', precio: 60.6 },
   ];
-  ngOnInit() {}
+
   hayRegistros() {
     return this.articulos.length > 0;
   }
+
   borrar(art) {
     for (let x = 0; x < this.articulos.length; x++)
       if (this.articulos[x].codigo == art.codigo) {
