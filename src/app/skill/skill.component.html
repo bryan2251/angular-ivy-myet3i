@@ -1,4 +1,4 @@
-<h1>Formulario Empleado</h1>
+<h1>Formulario de Registro</h1>
 <div class="frames">
   <div class="frame"></div>
   <div class="frame">
@@ -8,8 +8,18 @@
     <label for="ci">CI:</label> <br />
     <input type="text" id="ci" placeholder="Ingrese su CI" />
     <br />
+    <label for="ci">Celular:</label> <br />
+    <input type="text" id="ci" placeholder="Ingrese su numero de telefono" />
+    <br />
+    <label for="ci">Correo:</label> <br />
+    <input type="text" id="ci" placeholder="Ingrese su correo" />
+    <br />
     <label for="datos.id">ID:</label> <br />
-    <input type="text" [(ngModel)]="datos.id" placeholder="Ingrese su ID" />
+    <input
+      type="text"
+      [(ngModel)]="datos.id"
+      placeholder="Ingrese su codigo de pedido"
+    />
     <br />
     <label for="id2"> Ingrese su ID:</label><br />
     <input type="text" [(ngModel)]="empleado.id" /><br />
@@ -18,12 +28,17 @@
 <div class="form" *ngIf="empleado.id != ''">
   <div *ngIf="empleado.id === datos.id">
     <div>
-      <h1>Ferretería UCB</h1>
-      <table border="1" *ngIf="hayRegistros(); else sinarticulos">
+      <h1>Formulario de pedido</h1>
+      <table
+        border="1"
+        *ngIf="hayRegistros(); else sinarticulos"
+        align="center"
+      >
         <tr>
           <td>Código</td>
           <td>Descripción</td>
-          <td>Precio</td>
+          <td>PrecioU</td>
+          <td>Cantidad</td>
           <td>Borrar</td>
           <td>Seleccionar</td>
         </tr>
@@ -31,6 +46,7 @@
           <td>{{ art.codigo }}</td>
           <td>{{ art.descripcion }}</td>
           <td>{{ art.precio }}</td>
+          <td>{{ art.cantidad }}</td>
           <td><button (click)="borrar(art)">Borrar?</button></td>
           <td><button (click)="seleccionar(art)">Seleccionar</button></td>
         </tr>
@@ -40,11 +56,14 @@
         <p>Código:<input type="number" [(ngModel)]="art.codigo" /></p>
         <p>Descripción:<input type="text" [(ngModel)]="art.descripcion" /></p>
         <p>Precio:<input type="number" [(ngModel)]="art.precio" /></p>
+        <p>Cantidad:<input type="number" [(ngModel)]="art.cantidad" /></p>
         <p>
           <button (click)="agregar()">Agregar</button>
           <button (click)="modificar()">Modificar</button>
+          <button (click)="calcular()">Calcular</button>
         </p>
       </div>
+      <h1>Precio Final:{{ datos.precioF }}</h1>
     </div>
   </div>
 </div>
