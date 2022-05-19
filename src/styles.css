@@ -1,1 +1,6 @@
 /* Add application styles & imports to this file! */
+/* Add application styles & imports to this file! */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+* {
+  font-family: 'Open Sans', sans-serif;
+}
