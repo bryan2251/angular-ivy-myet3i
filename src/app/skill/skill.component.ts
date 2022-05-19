@@ -22,7 +22,7 @@ export class SkillComponent {
   };
 
   articulos = [
-    { codigo: 1, descripcion: 'Chocolate Crocante', precio: 1.5 },
+    { codigo: 1, descripcion: 'Chocolate', precio: 1.5 },
     { codigo: 2, descripcion: 'cable', precio: 15.5 },
     { codigo: 3, descripcion: 'martillos', precio: 102.3 },
     { codigo: 4, descripcion: 'tuberías', precio: 70 },
